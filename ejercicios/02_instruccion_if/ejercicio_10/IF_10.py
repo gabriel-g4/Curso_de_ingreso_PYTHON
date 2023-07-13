@@ -7,13 +7,14 @@ import random
 
 
 '''
-nombre:
-apellido:
+nombre: Gabriel
+apellido: Garcia
 ---
 Ejercicio: instrucion_if_10
 ---
 Enunciado:
-Al presionar el botón  'Calcular', se deberá calcular una nota aleatoria entre el 1 y el 10 inclusive, para luego mostrar un mensaje según el valor:
+Al presionar el botón  'Calcular', se deberá calcular una nota aleatoria entre el
+1 y el 10 inclusive, para luego mostrar un mensaje según el valor:
     6, 7, 8, 9 y 10 ---> Promoción directa, la nota es ...
     4 y 5           ---> Aprobado, la nota es ...
     1, 2 y 3        ---> Desaprobado, la nota es ...
@@ -33,8 +34,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass  
+        
+        nota = random.randrange(1, 11)
+
+        if (nota < 6):
+            if (nota > 3):
+                mensaje = f"Aprobado, la nota es: {nota}"
+            else:
+                mensaje = f"Desaprobado, la nota es: {nota}"
+        else:
+            mensaje = f"Promocion directa, la nota es: {nota}"
             
+        alert(title="Nota", message=mensaje)
 
 if __name__ == "__main__":
     app = App()
